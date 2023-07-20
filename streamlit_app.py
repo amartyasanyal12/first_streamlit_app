@@ -33,11 +33,4 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 import snowflake.connector
-import streamlit as st
 
-@st.experimental_singleton
-def init_connection():
-return snowflake.connector.connect(
-**st.secrets[“snowflake”], client_session_keep_alive=True
-)
-conn = init_connection()
